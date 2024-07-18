@@ -4,7 +4,7 @@ defmodule FileOrganizer do
   def run(args) do
     case args do
       [source_dir] -> create_directories_and_move_files(source_dir)
-      _ -> IO.puts("Usage: organize_files.exs <source_directory>")
+      _ -> IO.puts("Usage: organize_files <source_directory>")
     end
   end
 
@@ -21,7 +21,7 @@ defmodule FileOrganizer do
 
   defp extract_lastname(filename) do
     # Regex para extraer el apellido(s) antes del primer guión bajo
-    regex = ~r/^([a-zA-Z_]+)_/
+    regex = ~r/^([a-zA-Z0-9_]+)_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}\.[a-zA-Z0-9]+$/
     case Regex.run(regex, filename) do
       [_, lastname] -> lastname
       _ -> nil
