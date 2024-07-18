@@ -1,3 +1,3 @@
 # FilesOrganizer
 
-Organize students projects in folders
+Organize students projects in folders 
